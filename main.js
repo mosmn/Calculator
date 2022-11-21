@@ -7,7 +7,10 @@ BEGIN
 3) create a function that multiplies two numbers
 4) create a function that divides two numbers
 5) create a function that calculates the power of a number
+6) create a function that displays the result of the calculation
 END
+
+git commit -m "created the add, subtract, multiply, divide, and power functions"
 */ 
 
 //1) create a function that adds two numbers
@@ -35,4 +38,12 @@ const power = (num1, num2) => {
     return num1 ** num2;
     }
 
-    
+//6) create a function that displays the result of the calculation
+const displayResult = (result) => {
+    console.log(result);
+    }
+
+
+
+
+
