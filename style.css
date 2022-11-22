@@ -38,6 +38,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     width: 280px;
+    opacity: 0.5;
 }
 
 .display-input:focus {

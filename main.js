@@ -9,6 +9,10 @@ BEGIN
 5) create a function that calculates the power of a number
 6) create a function that displays the result of the calculation
 7) make Ans a variable that stores the result of the previous calculation
+
+TIME TO MANIPULATE THE DOM
+
+1) create a element that will display the value of the button that was clicked
 END
 
 git commit -m "created Ans variable"
@@ -48,6 +52,24 @@ const displayResult = (result) => {
 //7) make Ans a variable that stores the result of the previous calculation
 let Ans = displayResult(add(2, 3));
 console.log(Ans);
+
+//1) create a element that will display the value of the button that was clicked
+const display = document.querySelector('.display');
+const clac = document.createElement('div');
+const displayCalc = (e) => {
+    clac.classList.add('clac');
+    clac.textContent = e.target.textContent;
+    display.insertBefore(clac, display.firstChild);
+    }
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => button.addEventListener('click', displayCalc));
+
+
+
+
+
+
 
     
 
