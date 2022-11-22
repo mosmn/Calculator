@@ -15,7 +15,7 @@ TIME TO MANIPULATE THE DOM
 1) create a element that will display the value of the button that was clicked
 END
 
-git commit -m "created Ans variable"
+git commit -m "created a element that will display the value of the button that was clicked"
 */ 
 
 //1) create a function that adds two numbers
@@ -54,12 +54,12 @@ let Ans = displayResult(add(2, 3));
 console.log(Ans);
 
 //1) create a element that will display the value of the button that was clicked
-const display = document.querySelector('.display');
-const clac = document.createElement('div');
+const input = document.querySelector('.input');
 const displayCalc = (e) => {
+    const clac = document.createElement('div');
     clac.classList.add('clac');
     clac.textContent = e.target.textContent;
-    display.insertBefore(clac, display.firstChild);
+    input.appendChild(clac);
     }
 
 const buttons = document.querySelectorAll('button');

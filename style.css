@@ -24,12 +24,23 @@ body {
     width: 330px;
     border-radius: 10px 10px 0 0;
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
     padding: 0 10px;
 }
 
-.display-input {
+.input {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    color: white;
+    font-size: 30px;
+}
+
+.result {
     background-color: transparent;
     border: none;
     text-align: right;
@@ -41,7 +52,7 @@ body {
     opacity: 0.5;
 }
 
-.display-input:focus {
+.result:focus {
     outline: none;
 }
 
