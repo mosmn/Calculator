@@ -142,3 +142,5 @@ const displayResult = (e) => {
 
 buttons.forEach(button => button.addEventListener('click', displayResult));
 
+console.log(operand1Value);
+
