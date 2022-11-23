@@ -70,8 +70,11 @@ const displayOperand1 = (e) => {
     operand1.classList.add('operand1');
     if (e.target.classList.contains('operand')) {
         operand1.textContent += e.target.textContent;
+        const num1 = Number(operand1.textContent);
         input.appendChild(operand1);
         // try to use operand1 as a argument for the add function
+        console.log(num1);
+        return num1;
     }
 }
 
@@ -98,8 +101,11 @@ const displayOperand2 = (e) => {
     if (e.target.classList.contains('operand')) {
         if (operator.textContent) {
             operand2.textContent += e.target.textContent;
+            const num2 = Number(operand2.textContent);
             input.appendChild(operand2);
             buttons.forEach(button => button.removeEventListener('click', displayOperator));
+            console.log(num2);
+            return num2;
         }
     }
 }
@@ -107,13 +113,12 @@ const displayOperand2 = (e) => {
 buttons.forEach(button => button.addEventListener('click', displayOperand2));
 
 //4) select operand1 and operand2 and operator and store them in variables
-const operand1Value = document.querySelector('.operand1');
-const operand2Value = document.querySelector('.operand2');
-const operatorValue = document.querySelector('.operator');
+// const operand1Value = document.querySelector('.operand1');
+// const operand2Value = document.querySelector('.operand2');
 
 //5) convert the value of operand1 and operand2 to numbers
-const operand1Number = Number(operand1.textContent);
-const operand2Number = Number(operand2.textContent);
+// const operand1Number = Number(operand1.textContent);
+// const operand2Number = Number(operand2.textContent);
 // console.log(operand1Number);
 // console.log(operand2Number);
 
@@ -121,26 +126,35 @@ const operand2Number = Number(operand2.textContent);
 const equal = document.querySelector('.equal');
 const displayResult = (e) => {
     if (e.target.classList.contains('equal')) {
+        const operatorValue = document.querySelector('.operator');
+        const operand1Value = document.querySelector('.operand1');
+        const operand2Value = document.querySelector('.operand2');
+        const operand1Number = Number(operand1Value.textContent);
+        const operand2Number = Number(operand2Value.textContent);
+
         if (operatorValue.textContent === '+') {
             const result = add(operand1Number, operand2Number);
             console.log(result);
+            return result;
         } else if (operatorValue.textContent === '-') {
             const result = subtract(operand1Number, operand2Number);
             console.log(result);
+            return result;
         } else if (operatorValue.textContent === '*') {
             const result = multiply(operand1Number, operand2Number);
             console.log(result);
+            return result;
         } else if (operatorValue.textContent === '/') {
             const result = divide(operand1Number, operand2Number);
             console.log(result);
+            return result;
         } else if (operatorValue.textContent === '^') {
             const result = power(operand1Number, operand2Number);
             console.log(result);
+            return result;
         }
     }
 }
 
 buttons.forEach(button => button.addEventListener('click', displayResult));
-
-console.log(operand1Value);
 
