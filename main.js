@@ -17,8 +17,9 @@ TIME TO MANIPULATE THE DOM
 3) create a element that will display the value of second operand only if operator is entered
 4) select operand1 and operand2 and operator and store them in variables
 5) convert the value of operand1 and operand2 to numbers
+6) create a function that will display the result of the calculation when the equal button is clicked based on the operator
 
-git commit -m "edited second operand function and operator function"
+git commit -m "created a function that will display the result of the calculation when the equal button is clicked based on the operator"
 */ 
 
 //1) create a function that adds two numbers
@@ -47,14 +48,14 @@ const power = (num1, num2) => {
     }
 
 //6) create a function that displays the result of the calculation
-const displayResult = (result) => {
-    console.log(result);
-    return result;
-    }
+// const displayResult = (result) => {
+//     console.log(result);
+//     return result;
+//     }
 
 //7) make Ans a variable that stores the result of the previous calculation
-let Ans = displayResult(add(2, 3));
-console.log(Ans);
+// let Ans = displayResult(add(2, 3));
+// console.log(Ans);
 
 
 // TIME TO MANIPULATE THE DOM
@@ -111,6 +112,33 @@ const operand2Value = document.querySelector('.operand2');
 const operatorValue = document.querySelector('.operator');
 
 //5) convert the value of operand1 and operand2 to numbers
-const operand1Number = Number(operand1Value.textContent);
-const operand2Number = Number(operand2Value.textContent);
+const operand1Number = Number(operand1.textContent);
+const operand2Number = Number(operand2.textContent);
+// console.log(operand1Number);
+// console.log(operand2Number);
+
+//6) create a function that will display the result of the calculation when the equal button is clicked based on the operator
+const equal = document.querySelector('.equal');
+const displayResult = (e) => {
+    if (e.target.classList.contains('equal')) {
+        if (operatorValue.textContent === '+') {
+            const result = add(operand1Number, operand2Number);
+            console.log(result);
+        } else if (operatorValue.textContent === '-') {
+            const result = subtract(operand1Number, operand2Number);
+            console.log(result);
+        } else if (operatorValue.textContent === '*') {
+            const result = multiply(operand1Number, operand2Number);
+            console.log(result);
+        } else if (operatorValue.textContent === '/') {
+            const result = divide(operand1Number, operand2Number);
+            console.log(result);
+        } else if (operatorValue.textContent === '^') {
+            const result = power(operand1Number, operand2Number);
+            console.log(result);
+        }
+    }
+}
+
+buttons.forEach(button => button.addEventListener('click', displayResult));
 
