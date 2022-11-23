@@ -71,9 +71,10 @@ const displayOperand1 = (e) => {
         operand1.textContent += e.target.textContent;
         const num1 = Number(operand1.textContent);
         input.appendChild(operand1);
-        // try to use operand1 as a argument for the add function
         console.log(num1);
         return num1;
+        // add click event listener to operator buttons
+        // buttons.forEach(button => button.addEventListener('click', displayOperator));
     }
 }
 
