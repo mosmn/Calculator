@@ -15,8 +15,10 @@ TIME TO MANIPULATE THE DOM
 1) create a element that will display the value of first operand
 2) create a element that will display the operator only if first operand is entered
 3) create a element that will display the value of second operand only if operator is entered
+4) select operand1 and operand2 and operator and store them in variables
+5) convert the value of operand1 and operand2 to numbers
 
-git commit -m "created a element that will display the value of second operand only if operator is entered"
+git commit -m "edited second operand function and operator function"
 */ 
 
 //1) create a function that adds two numbers
@@ -54,6 +56,7 @@ const displayResult = (result) => {
 let Ans = displayResult(add(2, 3));
 console.log(Ans);
 
+
 // TIME TO MANIPULATE THE DOM
 
 
@@ -68,8 +71,6 @@ const displayOperand1 = (e) => {
         operand1.textContent += e.target.textContent;
         input.appendChild(operand1);
         // try to use operand1 as a argument for the add function
-        num1 = Number(operand1.textContent);
-        console.log(add(num1, 3));
     }
 }
 
@@ -83,6 +84,7 @@ const displayOperator = (e) => {
         operator.textContent += e.target.textContent;
         input.appendChild(operator);
         buttons.forEach(button => button.removeEventListener('click', displayOperand1));
+        buttons.forEach(button => button.removeEventListener('click', displayOperator));
     }
 }
 
@@ -103,17 +105,12 @@ const displayOperand2 = (e) => {
 
 buttons.forEach(button => button.addEventListener('click', displayOperand2));
 
+//4) select operand1 and operand2 and operator and store them in variables
+const operand1Value = document.querySelector('.operand1');
+const operand2Value = document.querySelector('.operand2');
+const operatorValue = document.querySelector('.operator');
 
-
-
-
-
-
-
-
-
-
-    
-
-
+//5) convert the value of operand1 and operand2 to numbers
+const operand1Number = Number(operand1Value.textContent);
+const operand2Number = Number(operand2Value.textContent);
 
