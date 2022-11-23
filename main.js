@@ -16,8 +16,9 @@ TIME TO MANIPULATE THE DOM
 2) create a element that will display the operator only if first operand is entered
 3) create a element that will display the value of second operand only if operator is entered
 4) create a function that will display the result of the calculation when the equal button is clicked based on the operator
+5) display the result of the calculation in the result element
 
-git commit -m "
+git commit -m "added a css style for the displayed result"
 */ 
 
 //1) create a function that adds two numbers
@@ -117,18 +118,21 @@ const displayResult = (e) => {
         const operatorValue = document.querySelector('.operator');
         const operand1Value = document.querySelector('.operand1');
         const operand2Value = document.querySelector('.operand2');
+        const showResult = document.querySelector('.result');
+        showResult.classList.add('displayed');
+
         const operand1Number = Number(operand1Value.textContent);
         const operand2Number = Number(operand2Value.textContent);
 
         if (operatorValue.textContent === '+') {
             const result = add(operand1Number, operand2Number);
-            console.log(result);
+            showResult.textContent = result;
             return result;
         } else if (operatorValue.textContent === '-') {
             const result = subtract(operand1Number, operand2Number);
             console.log(result);
             return result;
-        } else if (operatorValue.textContent === '*') {
+        } else if (operatorValue.textContent === 'x') {
             const result = multiply(operand1Number, operand2Number);
             console.log(result);
             return result;
