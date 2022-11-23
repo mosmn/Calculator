@@ -15,11 +15,9 @@ TIME TO MANIPULATE THE DOM
 1) create a element that will display the value of first operand
 2) create a element that will display the operator only if first operand is entered
 3) create a element that will display the value of second operand only if operator is entered
-4) select operand1 and operand2 and operator and store them in variables
-5) convert the value of operand1 and operand2 to numbers
-6) create a function that will display the result of the calculation when the equal button is clicked based on the operator
+4) create a function that will display the result of the calculation when the equal button is clicked based on the operator
 
-git commit -m "created a function that will display the result of the calculation when the equal button is clicked based on the operator"
+git commit -m "
 */ 
 
 //1) create a function that adds two numbers
@@ -112,17 +110,7 @@ const displayOperand2 = (e) => {
 
 buttons.forEach(button => button.addEventListener('click', displayOperand2));
 
-//4) select operand1 and operand2 and operator and store them in variables
-// const operand1Value = document.querySelector('.operand1');
-// const operand2Value = document.querySelector('.operand2');
-
-//5) convert the value of operand1 and operand2 to numbers
-// const operand1Number = Number(operand1.textContent);
-// const operand2Number = Number(operand2.textContent);
-// console.log(operand1Number);
-// console.log(operand2Number);
-
-//6) create a function that will display the result of the calculation when the equal button is clicked based on the operator
+//4) create a function that will display the result of the calculation when the equal button is clicked based on the operator
 const equal = document.querySelector('.equal');
 const displayResult = (e) => {
     if (e.target.classList.contains('equal')) {

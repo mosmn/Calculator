@@ -56,6 +56,10 @@ body {
     outline: none;
 }
 
+.result.displayed {
+    opacity: 1;
+}
+
 .buttons {
     display: flex;
     flex-direction: row;
