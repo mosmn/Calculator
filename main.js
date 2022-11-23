@@ -18,7 +18,7 @@ TIME TO MANIPULATE THE DOM
 4) create a function that will display the result of the calculation when the equal button is clicked based on the operator
 5) display the result of the calculation in the result element
 
-git commit -m "added a css style for the displayed result"
+git commit -m "display result of calculation when equal button is clicked and give it class of displayed"
 */ 
 
 //1) create a function that adds two numbers
@@ -130,19 +130,19 @@ const displayResult = (e) => {
             return result;
         } else if (operatorValue.textContent === '-') {
             const result = subtract(operand1Number, operand2Number);
-            console.log(result);
+            showResult.textContent = result;
             return result;
         } else if (operatorValue.textContent === 'x') {
             const result = multiply(operand1Number, operand2Number);
-            console.log(result);
+            showResult.textContent = result;
             return result;
         } else if (operatorValue.textContent === '/') {
             const result = divide(operand1Number, operand2Number);
-            console.log(result);
+            showResult.textContent = result;
             return result;
         } else if (operatorValue.textContent === '^') {
             const result = power(operand1Number, operand2Number);
-            console.log(result);
+            showResult.textContent = result;
             return result;
         }
     }
