@@ -13,6 +13,8 @@ BEGIN
 TIME TO MANIPULATE THE DOM
 
 1) create a element that will display the value of first operand
+2) create a element that will display the operator only if first operand is entered
+3) create a element that will display the value of second operand only if operator is entered
 
 git commit -m "created a element that will display the value of first operand"
 */ 
@@ -52,6 +54,9 @@ const displayResult = (result) => {
 let Ans = displayResult(add(2, 3));
 console.log(Ans);
 
+// TIME TO MANIPULATE THE DOM
+
+
 //1) create a element that will display the value of first operand
 const input = document.querySelector('.input');
 const buttons = document.querySelectorAll('button');
@@ -62,10 +67,45 @@ const displayOperand1 = (e) => {
     if (e.target.classList.contains('operand')) {
         operand1.textContent += e.target.textContent;
         input.appendChild(operand1);
+        // try to use operand1 as a argument for the add function
+        num1 = Number(operand1.textContent);
+        console.log(add(num1, 3));
     }
 }
 
 buttons.forEach(button => button.addEventListener('click', displayOperand1));
+
+//2) create a element that will display the operator only if first operand is entered
+const operator = document.createElement('div');
+const displayOperator = (e) => {
+    operator.classList.add('operator');
+    if (e.target.classList.contains('operator')) {
+        if (operand1.textContent) {
+            operator.textContent += e.target.textContent;
+            input.appendChild(operator);
+        }
+    }
+}
+
+buttons.forEach(button => button.addEventListener('click', displayOperator));
+
+//3) create a element that will display the value of second operand only if operator is entered
+const operand2 = document.createElement('div');
+const displayOperand2 = (e) => {
+    operand2.classList.add('operand2');
+    if (e.target.classList.contains('operand')) {
+        if (operator.textContent) {
+            operand2.textContent += e.target.textContent;
+            input.appendChild(operand2);
+        }
+    }
+}
+
+buttons.forEach(button => button.addEventListener('click', displayOperand2));
+
+
+
+
 
 
 
