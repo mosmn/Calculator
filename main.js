@@ -16,7 +16,7 @@ TIME TO MANIPULATE THE DOM
 2) create a element that will display the operator only if first operand is entered
 3) create a element that will display the value of second operand only if operator is entered
 
-git commit -m "created a element that will display the value of first operand"
+git commit -m "created a element that will display the value of second operand only if operator is entered"
 */ 
 
 //1) create a function that adds two numbers
