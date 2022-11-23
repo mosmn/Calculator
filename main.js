@@ -75,21 +75,20 @@ const displayOperand1 = (e) => {
 
 buttons.forEach(button => button.addEventListener('click', displayOperand1));
 
-//2) create a element that will display the operator only if first operand is entered
+//2) create a element that will display the operator and remove event listener for operand1
 const operator = document.createElement('div');
 const displayOperator = (e) => {
     operator.classList.add('operator');
     if (e.target.classList.contains('operator')) {
-        if (operand1.textContent) {
-            operator.textContent += e.target.textContent;
-            input.appendChild(operator);
-        }
+        operator.textContent += e.target.textContent;
+        input.appendChild(operator);
+        buttons.forEach(button => button.removeEventListener('click', displayOperand1));
     }
 }
 
 buttons.forEach(button => button.addEventListener('click', displayOperator));
 
-//3) create a element that will display the value of second operand only if operator is entered
+//3) create a element that will display the value of second operand and remove event listener for operator
 const operand2 = document.createElement('div');
 const displayOperand2 = (e) => {
     operand2.classList.add('operand2');
@@ -97,6 +96,7 @@ const displayOperand2 = (e) => {
         if (operator.textContent) {
             operand2.textContent += e.target.textContent;
             input.appendChild(operand2);
+            buttons.forEach(button => button.removeEventListener('click', displayOperator));
         }
     }
 }
