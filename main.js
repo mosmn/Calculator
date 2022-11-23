@@ -12,10 +12,9 @@ BEGIN
 
 TIME TO MANIPULATE THE DOM
 
-1) create a element that will display the value of the button that was clicked
-END
+1) create a element that will display the value of first operand
 
-git commit -m "created a element that will display the value of the button that was clicked"
+git commit -m "created a element that will display the value of first operand"
 */ 
 
 //1) create a function that adds two numbers
@@ -53,17 +52,20 @@ const displayResult = (result) => {
 let Ans = displayResult(add(2, 3));
 console.log(Ans);
 
-//1) create a element that will display the value of the button that was clicked
+//1) create a element that will display the value of first operand
 const input = document.querySelector('.input');
-const displayCalc = (e) => {
-    const clac = document.createElement('div');
-    clac.classList.add('clac');
-    clac.textContent = e.target.textContent;
-    input.appendChild(clac);
-    }
-
 const buttons = document.querySelectorAll('button');
-buttons.forEach(button => button.addEventListener('click', displayCalc));
+
+const operand1 = document.createElement('div');
+const displayOperand1 = (e) => {
+    operand1.classList.add('operand1');
+    if (e.target.classList.contains('operand')) {
+        operand1.textContent += e.target.textContent;
+        input.appendChild(operand1);
+    }
+}
+
+buttons.forEach(button => button.addEventListener('click', displayOperand1));
 
 
 
