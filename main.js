@@ -59,8 +59,6 @@ const displayOperand1 = (e) => {
         input.appendChild(operand1);
         console.log(num1);
         return num1;
-        // add click event listener to operator buttons
-        // buttons.forEach(button => button.addEventListener('click', displayOperator));
     }
 }
 
@@ -174,7 +172,7 @@ const showAns = (e) => {
         if (operator.textContent === '÷') {
             ans.textContent = divide(Number(operand1.textContent), Number(operand2.textContent));
         }
-        // copy the ans.textContent to the operand1.textContent and the operator that was clicked to the operator.textContent
+       
         operand1.textContent = ans.textContent;
         operator.textContent = e.target.textContent;
         operand2.textContent = '';
@@ -214,10 +212,10 @@ const deleteLastDigit = (e) => {
             operand1.textContent = operand1.textContent.slice(0, -1);
         }
 
-        // buttons.forEach(button => button.removeEventListener('click', showAns));
-        // buttons.forEach(button => button.addEventListener('click', displayOperand1));
-        // buttons.forEach(button => button.addEventListener('click', displayOperator));
-        // buttons.forEach(button => button.addEventListener('click', displayOperand2));
+        buttons.forEach(button => button.removeEventListener('click', showAns));
+        buttons.forEach(button => button.addEventListener('click', displayOperand1));
+        buttons.forEach(button => button.addEventListener('click', displayOperator));
+        buttons.forEach(button => button.addEventListener('click', displayOperand2));
     }
 }
 
@@ -238,12 +236,15 @@ const addDecimal = (e) => {
 buttons.forEach(button => button.addEventListener('click', addDecimal));
 
 //10) add ans in place of the operand if the ans button is clicked
-const ansButton = document.querySelector('.answer');
+
 const addAns = (e) => {
     if (e.target.classList.contains('answer')) {
-        if (operand1.textContent) {
+        if (operand1.textContent && operand2.textContent) {
+            operand1.textContent = ans.textContent;
+            operand2.textContent = '';
+        } else if (operand1.textContent && !operand2.textContent) {
             operand2.textContent = ans.textContent;
-        } else {
+        } else if (!operand1.textContent && !operand2.textContent) {
             operand1.textContent = ans.textContent;
         }
     }
