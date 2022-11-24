@@ -19,6 +19,8 @@ TIME TO MANIPULATE THE DOM
 5) make a number negative if the negative button is clicked
 6) show the result of the calculation on the top right if any of the operator buttons is clicked
 7) clear the display if the clear button is clicked except the result of the previous calculation(ans)
+8) delete the last digit of the operand or the operator if the DEL button is clicked
+9) make the decimal button work only once for each operand
 
 git commit -m "display result of calculation when equal button is clicked and give it class of displayed"
 */ 
@@ -214,3 +216,38 @@ const clearInput = (e) => {
 }
 
 buttons.forEach(button => button.addEventListener('click', clearInput));
+
+//8) delete the last digit of the operand when the backspace button is clicked
+const del = document.querySelector('.delete');
+const deleteLastDigit = (e) => {
+    if (e.target.classList.contains('delete')) {
+        if (operand2.textContent) {
+            operand2.textContent = operand2.textContent.slice(0, -1);
+        } else if (operator.textContent) {
+            operator.textContent = '';
+        } else if (operand1.textContent) {
+            operand1.textContent = operand1.textContent.slice(0, -1);
+        }
+
+        buttons.forEach(button => button.removeEventListener('click', showAns));
+        buttons.forEach(button => button.addEventListener('click', displayOperand1));
+        buttons.forEach(button => button.addEventListener('click', displayOperator));
+        buttons.forEach(button => button.addEventListener('click', displayOperand2));
+    }
+}
+
+buttons.forEach(button => button.addEventListener('click', deleteLastDigit));
+
+//9) make the decimal button work only once in each operand
+const decimal = document.querySelector('.decimal');
+const addDecimal = (e) => {
+    if (e.target.classList.contains('decimal')) {
+        if (operand1.textContent && !operand1.textContent.includes('.')) {
+            operand1.textContent += '.';
+        } else if (operand2.textContent && !operand2.textContent.includes('.')) {
+            operand2.textContent += '.';
+        }
+    }
+}
+
+buttons.forEach(button => button.addEventListener('click', addDecimal));
