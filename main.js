@@ -16,7 +16,7 @@ TIME TO MANIPULATE THE DOM
 2) create a element that will display the operator only if first operand is entered
 3) create a element that will display the value of second operand only if operator is entered
 4) create a function that will display the result of the calculation when the equal button is clicked based on the operator
-5) display the result of the calculation in the result element
+5) make a number negative if the negative button is clicked
 
 git commit -m "display result of calculation when equal button is clicked and give it class of displayed"
 */ 
@@ -85,10 +85,12 @@ const operator = document.createElement('div');
 const displayOperator = (e) => {
     operator.classList.add('operator');
     if (e.target.classList.contains('operator')) {
-        operator.textContent += e.target.textContent;
-        input.appendChild(operator);
-        buttons.forEach(button => button.removeEventListener('click', displayOperand1));
-        buttons.forEach(button => button.removeEventListener('click', displayOperator));
+        if (operand1.textContent) {
+            operator.textContent += e.target.textContent;
+            input.appendChild(operator);
+            buttons.forEach(button => button.removeEventListener('click', displayOperand1));
+            buttons.forEach(button => button.removeEventListener('click', displayOperator));
+        }
     }
 }
 
@@ -151,3 +153,21 @@ const displayResult = (e) => {
 
 buttons.forEach(button => button.addEventListener('click', displayResult));
 
+//5) make a number negative if the negative button is clicked
+const negative = document.querySelector('.neg');
+const makeNegative = (e) => {
+    if (e.target.classList.contains('neg')) {
+        if (operand1.textContent) {
+            operand1.textContent = -operand1.textContent;
+        } else if (operand2.textContent) {
+            operand2.textContent = -operand2.textContent;
+        } 
+        
+        if (operand1.textContent && operand2.textContent) {
+            operand1.textContent = -operand1.textContent;
+            operand2.textContent = -operand2.textContent;
+        }
+    }
+}
+
+buttons.forEach(button => button.addEventListener('click', makeNegative));
