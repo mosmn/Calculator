@@ -30,6 +30,13 @@ body {
     padding: 0 10px;
 }
 
+.ans {
+    color: #adadad;
+    /* underline */
+    text-decoration: underline;
+
+}
+
 .input {
     display: flex;
     justify-content: flex-start;

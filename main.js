@@ -17,6 +17,7 @@ TIME TO MANIPULATE THE DOM
 3) create a element that will display the value of second operand only if operator is entered
 4) create a function that will display the result of the calculation when the equal button is clicked based on the operator
 5) make a number negative if the negative button is clicked
+6) show the result of the calculation on the top right if any of the operator buttons is clicked
 
 git commit -m "display result of calculation when equal button is clicked and give it class of displayed"
 */ 
@@ -103,6 +104,7 @@ const displayOperand2 = (e) => {
             const num2 = Number(operand2.textContent);
             input.appendChild(operand2);
             buttons.forEach(button => button.removeEventListener('click', displayOperator));
+            buttons.forEach(button => button.addEventListener('click', showAns));
             console.log(num2);
             return num2;
         }
@@ -164,3 +166,28 @@ const makeNegative = (e) => {
 }
 
 buttons.forEach(button => button.addEventListener('click', makeNegative));
+
+//6) show the result of the calculation on the top right if any of the operator buttons is clicked
+const ans = document.querySelector('.ans');
+const showAns = (e) => {
+    if (e.target.classList.contains('operator')) {
+        const result = document.querySelector('.result');
+
+        if (operator.textContent === '+') {
+            ans.textContent = add(Number(operand1.textContent), Number(operand2.textContent));
+        }
+        if (operator.textContent === '-') {
+            ans.textContent = subtract(Number(operand1.textContent), Number(operand2.textContent));
+        }
+        if (operator.textContent === '×') {
+            ans.textContent = multiply(Number(operand1.textContent), Number(operand2.textContent));
+        }
+        if (operator.textContent === '÷') {
+            ans.textContent = divide(Number(operand1.textContent), Number(operand2.textContent));
+        }
+        // copy the ans.textContent to the operand1.textContent and the operator that was clicked to the operator.textContent
+        operand1.textContent = ans.textContent;
+        operator.textContent = e.target.textContent;
+        operand2.textContent = '';
+    }
+}
