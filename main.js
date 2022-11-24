@@ -204,7 +204,8 @@ const clearInput = (e) => {
         operand2.textContent = '';
         showResult.textContent = '0';
         showResult.classList.remove('displayed');
-        
+
+        buttons.forEach(button => button.removeEventListener('click', showAns));
         buttons.forEach(button => button.addEventListener('click', displayOperand1));
         buttons.forEach(button => button.addEventListener('click', displayOperator));
         buttons.forEach(button => button.addEventListener('click', displayOperand2));
