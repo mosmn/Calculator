@@ -18,6 +18,7 @@ TIME TO MANIPULATE THE DOM
 4) create a function that will display the result of the calculation when the equal button is clicked based on the operator
 5) make a number negative if the negative button is clicked
 6) show the result of the calculation on the top right if any of the operator buttons is clicked
+7) clear the display if the clear button is clicked except the result of the previous calculation(ans)
 
 git commit -m "display result of calculation when equal button is clicked and give it class of displayed"
 */ 
@@ -115,12 +116,13 @@ buttons.forEach(button => button.addEventListener('click', displayOperand2));
 
 //4) create a function that will display the result of the calculation when the equal button is clicked based on the operator
 const equal = document.querySelector('.equal');
+const showResult = document.querySelector('.result');
+
 const displayResult = (e) => {
     if (e.target.classList.contains('equal')) {
         const operatorValue = document.querySelector('.operator');
         const operand1Value = document.querySelector('.operand1');
         const operand2Value = document.querySelector('.operand2');
-        const showResult = document.querySelector('.result');
         showResult.classList.add('displayed');
 
         const operand1Number = Number(operand1Value.textContent);
@@ -191,3 +193,23 @@ const showAns = (e) => {
         operand2.textContent = '';
     }
 }
+
+
+//7) clear the input and the result when the clear button is clicked except the ans.textContent
+const clear = document.querySelector('.clear');
+const clearInput = (e) => {
+    if (e.target.classList.contains('clear')) {
+        operand1.textContent = '';
+        operator.textContent = '';
+        operand2.textContent = '';
+        showResult.textContent = '0';
+        showResult.classList.remove('displayed');
+        
+        buttons.forEach(button => button.addEventListener('click', displayOperand1));
+        buttons.forEach(button => button.addEventListener('click', displayOperator));
+        buttons.forEach(button => button.addEventListener('click', displayOperand2));
+
+    }
+}
+
+buttons.forEach(button => button.addEventListener('click', clearInput));
