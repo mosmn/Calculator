@@ -6,9 +6,6 @@ BEGIN
 2) create a function that subtracts two numbers
 3) create a function that multiplies two numbers
 4) create a function that divides two numbers
-5) create a function that calculates the power of a number
-6) create a function that displays the result of the calculation
-7) make Ans a variable that stores the result of the previous calculation
 
 TIME TO MANIPULATE THE DOM
 
@@ -21,6 +18,7 @@ TIME TO MANIPULATE THE DOM
 7) clear the display if the clear button is clicked except the result of the previous calculation(ans)
 8) delete the last digit of the operand or the operator if the DEL button is clicked
 9) make the decimal button work only once for each operand
+10) add ans in place of the first operand if the ans button is clicked
 
 git commit -m "display result of calculation when equal button is clicked and give it class of displayed"
 */ 
@@ -44,19 +42,6 @@ const multiply = (num1, num2) => {
 const divide = (num1, num2) => {
     return num1 / num2;
     }
-
-//5) create a function that calculates the power of a number
-
-//6) create a function that displays the result of the calculation
-// const displayResult = (result) => {
-//     console.log(result);
-//     return result;
-//     }
-
-//7) make Ans a variable that stores the result of the previous calculation
-// let Ans = displayResult(add(2, 3));
-// console.log(Ans);
-
 
 // TIME TO MANIPULATE THE DOM
 
@@ -251,3 +236,17 @@ const addDecimal = (e) => {
 }
 
 buttons.forEach(button => button.addEventListener('click', addDecimal));
+
+//10) add ans in place of the operand if the ans button is clicked
+const ansButton = document.querySelector('.answer');
+const addAns = (e) => {
+    if (e.target.classList.contains('answer')) {
+        if (operand1.textContent) {
+            operand2.textContent = ans.textContent;
+        } else {
+            operand1.textContent = ans.textContent;
+        }
+    }
+}
+
+buttons.forEach(button => button.addEventListener('click', addAns));
