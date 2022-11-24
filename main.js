@@ -157,9 +157,11 @@ buttons.forEach(button => button.addEventListener('click', makeNegative));
 //6) show the result of the calculation on the top right if any of the operator buttons is clicked
 const ans = document.querySelector('.ans');
 const showAns = (e) => {
+    if (showResult.classList.contains('displayed')) {
+        ans.textContent = showResult.textContent;
+    }
+    
     if (e.target.classList.contains('operator')) {
-        const result = document.querySelector('.result');
-
         if (operator.textContent === '+') {
             ans.textContent = add(Number(operand1.textContent), Number(operand2.textContent));
         }
