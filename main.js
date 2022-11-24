@@ -160,7 +160,7 @@ const showAns = (e) => {
     if (showResult.classList.contains('displayed')) {
         ans.textContent = showResult.textContent;
     }
-    
+
     if (e.target.classList.contains('operator')) {
         if (operator.textContent === '+') {
             ans.textContent = add(Number(operand1.textContent), Number(operand2.textContent));
@@ -238,11 +238,11 @@ const addDecimal = (e) => {
 buttons.forEach(button => button.addEventListener('click', addDecimal));
 
 //10) add ans in place of the operand if the ans button is clicked
-
 const addAns = (e) => {
     if (e.target.classList.contains('answer')) {
         if (operand1.textContent && operand2.textContent) {
             operand1.textContent = ans.textContent;
+            operator.textContent = '';
             operand2.textContent = '';
         } else if (operand1.textContent && !operand2.textContent) {
             operand2.textContent = ans.textContent;
