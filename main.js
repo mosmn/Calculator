@@ -214,10 +214,10 @@ const deleteLastDigit = (e) => {
             operand1.textContent = operand1.textContent.slice(0, -1);
         }
 
-        buttons.forEach(button => button.removeEventListener('click', showAns));
-        buttons.forEach(button => button.addEventListener('click', displayOperand1));
-        buttons.forEach(button => button.addEventListener('click', displayOperator));
-        buttons.forEach(button => button.addEventListener('click', displayOperand2));
+        // buttons.forEach(button => button.removeEventListener('click', showAns));
+        // buttons.forEach(button => button.addEventListener('click', displayOperand1));
+        // buttons.forEach(button => button.addEventListener('click', displayOperator));
+        // buttons.forEach(button => button.addEventListener('click', displayOperand2));
     }
 }
 
@@ -227,7 +227,7 @@ buttons.forEach(button => button.addEventListener('click', deleteLastDigit));
 const decimal = document.querySelector('.decimal');
 const addDecimal = (e) => {
     if (e.target.classList.contains('decimal')) {
-        if (operand1.textContent && !operand1.textContent.includes('.')) {
+        if (operand1.textContent && !operand1.textContent.includes('.') && !operator.textContent) {
             operand1.textContent += '.';
         } else if (operand2.textContent && !operand2.textContent.includes('.')) {
             operand2.textContent += '.';
