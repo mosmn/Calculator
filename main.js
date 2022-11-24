@@ -42,9 +42,6 @@ const divide = (num1, num2) => {
     }
 
 //5) create a function that calculates the power of a number
-const power = (num1, num2) => {
-    return num1 ** num2;
-    }
 
 //6) create a function that displays the result of the calculation
 // const displayResult = (result) => {
@@ -141,10 +138,6 @@ const displayResult = (e) => {
             return result;
         } else if (operatorValue.textContent === '÷') {
             const result = divide(operand1Number, operand2Number);
-            showResult.textContent = result;
-            return result;
-        } else if (operatorValue.textContent === '^') {
-            const result = power(operand1Number, operand2Number);
             showResult.textContent = result;
             return result;
         }
