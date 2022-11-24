@@ -133,11 +133,11 @@ const displayResult = (e) => {
             const result = subtract(operand1Number, operand2Number);
             showResult.textContent = result;
             return result;
-        } else if (operatorValue.textContent === 'x') {
+        } else if (operatorValue.textContent === '×') {
             const result = multiply(operand1Number, operand2Number);
             showResult.textContent = result;
             return result;
-        } else if (operatorValue.textContent === '/') {
+        } else if (operatorValue.textContent === '÷') {
             const result = divide(operand1Number, operand2Number);
             showResult.textContent = result;
             return result;
