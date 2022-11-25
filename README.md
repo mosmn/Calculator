@@ -10,3 +10,12 @@ This is a simple calculator that can be used to perform basic arithmetic operati
 
 Click the link to open the
 [Calculator](https://mosmn.github.io/Calculator/)
+
+## Technologies used
+
+- HTML
+- CSS
+- JavaScript
+(no frameworks)
+
+
