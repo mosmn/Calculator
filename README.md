@@ -18,4 +18,7 @@ Click the link to open the
 - JavaScript
 (no frameworks)
 
+## Approach
+
+I started by creating the basic HTML structure and then added the CSS to style the page using flexbox. I then wrote the basic arithmetic functions in JavaScript and added the event listeners to the buttons.
 
