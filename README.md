@@ -14,7 +14,7 @@ Click the link to open the
 ## Technologies used
 
 - HTML
-- CSS
+- CSS (flexbox)
 - JavaScript
 (no frameworks)
 
