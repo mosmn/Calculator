@@ -19,34 +19,26 @@ TIME TO MANIPULATE THE DOM
 8) delete the last digit of the operand or the operator if the DEL button is clicked
 9) make the decimal button work only once for each operand
 10) add ans in place of the first operand if the ans button is clicked
-
-git commit -m "display result of calculation when equal button is clicked and give it class of displayed"
 */ 
 
-//1) create a function that adds two numbers
+
 const add = (num1, num2) => {
     return num1 + num2;
     }
 
-//2) create a function that subtracts two numbers
 const subtract = (num1, num2) => {
     return num1 - num2;
     }
 
-//3) create a function that multiplies two numbers
 const multiply = (num1, num2) => {
     return num1 * num2;
     }
 
-//4) create a function that divides two numbers
 const divide = (num1, num2) => {
     return num1 / num2;
     }
 
-// TIME TO MANIPULATE THE DOM
 
-
-//1) create a element that will display the value of first operand
 const input = document.querySelector('.input');
 const buttons = document.querySelectorAll('button');
 
@@ -61,10 +53,9 @@ const displayOperand1 = (e) => {
         return num1;
     }
 }
-
 buttons.forEach(button => button.addEventListener('click', displayOperand1));
 
-//2) create a element that will display the operator and remove event listener for operand1
+
 const operator = document.createElement('div');
 const displayOperator = (e) => {
     operator.classList.add('operator');
@@ -77,10 +68,9 @@ const displayOperator = (e) => {
         }
     }
 }
-
 buttons.forEach(button => button.addEventListener('click', displayOperator));
 
-//3) create a element that will display the value of second operand and remove event listener for operator
+
 const operand2 = document.createElement('div');
 const displayOperand2 = (e) => {
     operand2.classList.add('operand2');
@@ -96,10 +86,8 @@ const displayOperand2 = (e) => {
         }
     }
 }
-
 buttons.forEach(button => button.addEventListener('click', displayOperand2));
 
-//4) create a function that will display the result of the calculation when the equal button is clicked based on the operator
 const equal = document.querySelector('.equal');
 const showResult = document.querySelector('.result');
 
@@ -132,10 +120,8 @@ const displayResult = (e) => {
         }
     }
 }
-
 buttons.forEach(button => button.addEventListener('click', displayResult));
 
-//5) make a number negative if the negative button is clicked
 const negative = document.querySelector('.neg');
 const makeNegative = (e) => {
     if (e.target.classList.contains('neg')) {
@@ -151,10 +137,8 @@ const makeNegative = (e) => {
         }
     }
 }
-
 buttons.forEach(button => button.addEventListener('click', makeNegative));
 
-//6) show the result of the calculation on the top right if any of the operator buttons is clicked
 const ans = document.querySelector('.ans');
 const showAns = (e) => {
     if (showResult.classList.contains('displayed')) {
@@ -181,8 +165,6 @@ const showAns = (e) => {
     }
 }
 
-
-//7) clear the input and the result when the clear button is clicked except the ans.textContent
 const clear = document.querySelector('.clear');
 const clearInput = (e) => {
     if (e.target.classList.contains('clear')) {
@@ -199,10 +181,9 @@ const clearInput = (e) => {
 
     }
 }
-
 buttons.forEach(button => button.addEventListener('click', clearInput));
 
-//8) delete the last digit of the operand when the backspace button is clicked
+
 const del = document.querySelector('.delete');
 const deleteLastDigit = (e) => {
     if (e.target.classList.contains('delete')) {
@@ -223,7 +204,7 @@ const deleteLastDigit = (e) => {
 
 buttons.forEach(button => button.addEventListener('click', deleteLastDigit));
 
-//9) make the decimal button work only once in each operand
+
 const decimal = document.querySelector('.decimal');
 const addDecimal = (e) => {
     if (e.target.classList.contains('decimal')) {
@@ -237,7 +218,7 @@ const addDecimal = (e) => {
 
 buttons.forEach(button => button.addEventListener('click', addDecimal));
 
-//10) add ans in place of the operand if the ans button is clicked
+
 const addAns = (e) => {
     if (e.target.classList.contains('answer')) {
         if (operand1.textContent && operand2.textContent) {
